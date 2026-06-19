@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince Nwalozie | Engineering & Product Portfolio</title>
+    <meta name="description" content="Portfolio of Prince Nwalozie, B.S. in Management Science and Engineering student at Stanford University.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Script to prevent flash of unstyled content for Dark Mode -->
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#10B981', // green-500
+                            dark: '#059669',   // green-600
+                        },
+                        secondary: {
+                            DEFAULT: '#3B82F6', // blue-500
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Outfit', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="font-body text-gray-800 bg-gray-50 dark:bg-gray-900 dark:text-gray-100 antialiased overflow-x-hidden transition-colors duration-300">
+
+    <!-- NAVBAR START -->
+    <nav class="navbar fixed w-full top-0 left-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="font-heading font-extrabold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                        Prince.
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="about.html" class="font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">About</a>
+                    <a href="index.html#experience" class="font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">Experience</a>
+                    <a href="project-details.html" class="font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">Projects</a>
+                    <a href="about.html#leadership" class="font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">Leadership</a>
+                    <a href="blog-list.html" class="font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">Blog</a>
+                    
+                    <!-- Dark Mode Toggle Button -->
+                    <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 transition-colors">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                    
+                    <a href="contact.html" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full font-semibold hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300">Let's Talk</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center gap-4">
+                    <button id="theme-toggle-mobile" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none rounded-lg text-sm p-2.5">
+                        <svg class="w-5 h-5 dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                    <button id="mobile-menu-button" class="text-gray-600 dark:text-gray-300 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary">About</a>
+                <a href="index.html#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary">Experience</a>
+                <a href="project-details.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary">Projects</a>
+                <a href="about.html#leadership" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary">Leadership</a>
+                <a href="blog-list.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary">Blog</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-100 dark:hover:bg-gray-800">Let's Talk</a>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+    <!-- HERO SECTION START -->
+    <header class="pt-32 pb-20 md:pt-48 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12" id="home">
+        <div class="flex-1 text-center md:text-left reveal">
+            <p class="font-semibold text-primary uppercase tracking-wide text-sm mb-4">B.S. Management Science & Engineering, Stanford University</p>
+            <h1 class="font-heading text-5xl md:text-7xl font-extrabold mb-6 text-gray-900 dark:text-white leading-tight">
+                Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Prince Nwalozie</span>, <br>and this is my portfolio.
+            </h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-xl mx-auto md:mx-0">
+                Passionate about blending engineering, data science, and product management to build meaningful solutions. From predictive modeling to UX/UI design, I strive to make a positive impact through thoughtful innovation.
+            </p>
+            <div class="flex flex-col sm:flex-row flex-wrap gap-4 mt-8 md:mt-10">
+                <a href="#experience" class="px-6 py-3 md:px-8 md:py-4 text-sm md:text-base bg-primary hover:bg-primary-dark text-white rounded-full font-bold transition-all shadow-lg shadow-primary/30 hover:shadow-xl hover:-translate-y-1 text-center">
+                    View Experience
+                </a>
+                <a href="../cv/Prince%20Nwalozie%20-%20R%C3%A9sum%C3%A9%20(New%20Grad%20-%20PRODUCT).pdf" target="_blank" class="px-6 py-3 md:px-8 md:py-4 text-sm md:text-base bg-secondary hover:bg-blue-600 text-white rounded-full font-bold transition-all shadow-lg shadow-secondary/30 hover:shadow-xl hover:-translate-y-1 text-center flex items-center justify-center gap-2">
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+            </div>
+        </div>
+        <div class="flex-1 flex justify-center relative reveal reveal-right md:mt-0">
+            <div class="relative w-64 h-80 md:w-80 md:h-[400px]">
+                <div class="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl transform rotate-6 z-0"></div>
+                <img src="assets/profile.png" alt="Prince Nwalozie" class="relative z-10 w-full h-full object-cover rounded-2xl shadow-2xl">
+            </div>
+        </div>
+    </header>
+    <!-- HERO SECTION END -->
+
+    <!-- NEW SECTION: WHAT I DO START -->
+    <section class="py-20 bg-gray-100 dark:bg-gray-800/50 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">What I Do</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">Technical proficiency meets strategic product vision.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-md border border-gray-100 dark:border-gray-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-primary/10 dark:bg-primary/20 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-code text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 text-gray-900 dark:text-white">Technical Engineering</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Building robust solutions using Python, C++, SQL, and JavaScript. Experienced in Git, MATLAB, and CRM Systems for scalable architecture.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-md border border-gray-100 dark:border-gray-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-primary/10 dark:bg-primary/20 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 text-gray-900 dark:text-white">Data Analytics</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Transforming complex data into actionable insights through data cleaning, visualization, quantitative modeling, and risk assessment.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-md border border-gray-100 dark:border-gray-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-primary/10 dark:bg-primary/20 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-lightbulb text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 text-gray-900 dark:text-white">Product Strategy</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Driving process optimization, AI strategy, and UX/UI design (Figma). Adept at A/B testing and conducting deep user research.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- NEW SECTION: WHAT I DO END -->
+
+    <!-- EXPERIENCE START -->
+    <section id="experience" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">Professional Experience</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">Where I've applied my skills in the real world.</p>
+            </div>
+            
+            <div class="relative border-l-2 border-gray-200 dark:border-gray-700 ml-3 md:ml-0">
+                <!-- Item 1 -->
+                <div class="mb-10 pl-8 relative group">
+                    <div class="absolute w-5 h-5 bg-primary rounded-full -left-[11px] top-1 border-4 border-white dark:border-gray-900"></div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 group-hover:shadow-md transition-shadow">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Financial Planning and Analysis Intern</h3>
+                        <div class="flex flex-col sm:flex-row sm:justify-between text-sm mb-4">
+                            <span class="text-secondary font-semibold">EP Wealth Advisors</span>
+                            <span class="text-gray-500 dark:text-gray-400">June 2026 - Present | Torrance, CA</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Incoming FP&A Intern for Summer 2026.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="mb-10 pl-8 relative group">
+                    <div class="absolute w-5 h-5 bg-primary rounded-full -left-[11px] top-1 border-4 border-white dark:border-gray-900"></div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 group-hover:shadow-md transition-shadow">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Responsible Computing Intern</h3>
+                        <div class="flex flex-col sm:flex-row sm:justify-between text-sm mb-4">
+                            <span class="text-secondary font-semibold">Mozilla</span>
+                            <span class="text-gray-500 dark:text-gray-400">June 2025 - Sep 2025 | Los Angeles, CA</span>
+                        </div>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 text-sm space-y-2">
+                            <li>Executed cross-institutional analysis on responsible computing, assessing AI and computational infrastructure throughout sub-Saharan Africa.</li>
+                            <li>Conducted legal and policy audits for regional/international data protection regulations.</li>
+                            <li>Synthesized documentation to establish strategic guidance for program-level partnerships.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="pl-8 relative group">
+                    <div class="absolute w-5 h-5 bg-primary rounded-full -left-[11px] top-1 border-4 border-white dark:border-gray-900"></div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 group-hover:shadow-md transition-shadow">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-1">Business Analyst Intern</h3>
+                        <div class="flex flex-col sm:flex-row sm:justify-between text-sm mb-4">
+                            <span class="text-secondary font-semibold">Accenture</span>
+                            <span class="text-gray-500 dark:text-gray-400">June 2024 - Aug 2024 | Los Angeles, CA</span>
+                        </div>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 text-sm space-y-2">
+                            <li>Analyzed platform and financial performance for cross-functional initiatives for major client accounts.</li>
+                            <li>Collaborated with subject matter experts to facilitate demonstrations and guide roadmap development.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="about.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
+                    Read Full Experience <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- EXPERIENCE END -->
+
+    <!-- FEATURED PROJECTS START -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800/30 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="font-heading text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400">A glimpse into my academic and engineering research.</p>
+                </div>
+                <a href="project-details.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors mt-4 md:mt-0">
+                    View All Projects <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Preview 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-48 bg-primary/10 dark:bg-primary/20 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-wave-square text-6xl text-primary/50 group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">Touchless Theremin</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">Hardware design and signal processing for a touchless electronic musical instrument using capacitance.</p>
+                        <a href="project-details.html" class="text-primary font-medium text-sm hover:underline">Learn more &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Project Preview 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-48 bg-secondary/10 dark:bg-secondary/20 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-project-diagram text-6xl text-secondary/50 group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">Systems Optimization Proposal</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">Strategic planning and workflow streamlining for maximizing efficiency in business contexts.</p>
+                        <a href="project-details.html" class="text-primary font-medium text-sm hover:underline">Learn more &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Project Preview 3 -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-48 bg-purple-100 dark:bg-purple-900/20 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-chart-pie text-6xl text-purple-500/50 group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-2">Applied Data Methodologies</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">Quantitative approaches to decision-making based on robust datasets and probabilistic models.</p>
+                        <a href="project-details.html" class="text-primary font-medium text-sm hover:underline">Learn more &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FEATURED PROJECTS END -->
+
+    <!-- CERTIFICATIONS & AWARDS PREVIEW START -->
+    <section class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-10">Certifications & Affiliations</h2>
+            <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+                <span class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-xl font-medium shadow-sm flex items-center gap-3"><i class="fas fa-certificate text-primary"></i> AWS Certification (In Progress)</span>
+                <span class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-xl font-medium shadow-sm flex items-center gap-3"><i class="fas fa-certificate text-primary"></i> Tech Ethics and Policy Fellow</span>
+                <span class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 px-6 py-3 rounded-xl font-medium shadow-sm flex items-center gap-3"><i class="fas fa-users text-primary"></i> Black Product Managers Network</span>
+            </div>
+            <div class="mt-8">
+                <a href="about.html" class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium">View full list in About page &rarr;</a>
+            </div>
+        </div>
+    </section>
+    <!-- CERTIFICATIONS & AWARDS PREVIEW END -->
+
+    <!-- LATEST INSIGHTS (BLOG) START -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800/30 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="font-heading text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">Latest Insights</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400">Thoughts on product management, data, and technology.</p>
+                </div>
+                <a href="blog-list.html" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors mt-4 md:mt-0">
+                    Read the Blog <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Preview 1 -->
+                <a href="blog-details.html" class="flex flex-col bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                        <i class="fas fa-chart-network text-5xl text-primary/50 group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <div class="p-6 flex flex-col justify-center flex-grow">
+                        <span class="text-xs font-bold text-primary uppercase tracking-wider mb-2">Product Management</span>
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary transition-colors">Building User-Centric Data Products</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-3">Bridging the gap between complex data pipelines and intuitive, engaging user interfaces.</p>
+                    </div>
+                </a>
+                
+                <!-- Blog Preview 2 -->
+                <a href="blog-details.html" class="flex flex-col bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
+                        <i class="fas fa-robot text-5xl text-purple-500/50 group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <div class="p-6 flex flex-col justify-center flex-grow">
+                        <span class="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-2">Artificial Intelligence</span>
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary transition-colors">The Future of AI in Education</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-3">How predictive modeling and machine learning can be leveraged to customize learning experiences.</p>
+                    </div>
+                </a>
+
+                <!-- Blog Preview 3 -->
+                <a href="blog-details.html" class="flex flex-col bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-700 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
+                        <i class="fas fa-lightbulb text-5xl text-blue-500/50 group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <div class="p-6 flex flex-col justify-center flex-grow">
+                        <span class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-2">Strategy</span>
+                        <h3 class="font-heading text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary transition-colors">Optimizing Cross-Functional Teams</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-3">Strategies for aligning engineering and business goals to deliver scalable and sustainable solutions.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- LATEST INSIGHTS (BLOG) END -->
+
+    <!-- NEW SECTION: RECOMMENDATIONS/TESTIMONIALS START -->
+    <section class="py-20 bg-gradient-to-br from-primary-dark to-secondary text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal relative">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl font-extrabold mb-4">What People Say</h2>
+                <p class="text-lg text-white/80">Feedback from colleagues and mentors.</p>
+            </div>
+            
+            <div class="relative w-full max-w-4xl mx-auto group">
+                <!-- Carousel Container -->
+                <div class="overflow-hidden rounded-2xl relative">
+                    <div id="testimonial-slider" class="flex transition-transform duration-500 ease-out">
+                        
+                        <!-- Testimonial 1 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-8 md:p-12 rounded-2xl h-full flex flex-col justify-center">
+                                <i class="fas fa-quote-left text-4xl text-white/30 mb-6 block text-center"></i>
+                                <p class="text-white/90 text-lg md:text-xl italic mb-8 text-center leading-relaxed">"Prince is an exceptional talent. His ability to synthesize complex data into actionable product strategies is unparalleled. He consistently delivered high-impact insights during his time with our team."</p>
+                                <div class="flex items-center justify-center gap-4 mt-auto">
+                                    <div class="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center font-bold text-xl">JD</div>
+                                    <div class="text-left">
+                                        <h4 class="font-bold text-lg">Jane Doe</h4>
+                                        <p class="text-white/70">Product Manager, Mozilla</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-8 md:p-12 rounded-2xl h-full flex flex-col justify-center">
+                                <i class="fas fa-quote-left text-4xl text-white/30 mb-6 block text-center"></i>
+                                <p class="text-white/90 text-lg md:text-xl italic mb-8 text-center leading-relaxed">"Working with Prince was a game-changer for our analytical infrastructure. His technical acumen coupled with a strategic mindset makes him a tremendous asset to any engineering or product team."</p>
+                                <div class="flex items-center justify-center gap-4 mt-auto">
+                                    <div class="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center font-bold text-xl">JS</div>
+                                    <div class="text-left">
+                                        <h4 class="font-bold text-lg">John Smith</h4>
+                                        <p class="text-white/70">Senior Consultant, Accenture</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testimonial 3 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="bg-white/10 backdrop-blur-lg border border-white/20 p-8 md:p-12 rounded-2xl h-full flex flex-col justify-center">
+                                <i class="fas fa-quote-left text-4xl text-white/30 mb-6 block text-center"></i>
+                                <p class="text-white/90 text-lg md:text-xl italic mb-8 text-center leading-relaxed">"His dedication to user-centric design and data-driven decision-making is inspiring. Prince doesn't just build products; he creates experiences that truly resonate with the target audience."</p>
+                                <div class="flex items-center justify-center gap-4 mt-auto">
+                                    <div class="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center font-bold text-xl">AR</div>
+                                    <div class="text-left">
+                                        <h4 class="font-bold text-lg">Alex Rodriguez</h4>
+                                        <p class="text-white/70">Director of Data Science, America On Tech</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- Carousel Controls -->
+                <button id="prev-testimonial" class="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white transition-all focus:outline-none z-10 opacity-0 group-hover:opacity-100 shadow-lg hover:scale-110">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="next-testimonial" class="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white transition-all focus:outline-none z-10 opacity-0 group-hover:opacity-100 shadow-lg hover:scale-110">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <!-- Indicators -->
+                <div class="flex justify-center gap-3 mt-10" id="testimonial-indicators">
+                    <!-- Javascript will populate dots here -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- NEW SECTION: RECOMMENDATIONS/TESTIMONIALS END -->
+
+    <!-- CONTACT FORM START -->
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 flex items-center">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full reveal">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">Let's Connect</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">Have a project or opportunity? I'd love to hear from you.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700">
+                <!-- Contact Info -->
+                <div class="p-10 md:p-16 bg-gradient-to-br from-primary-dark to-secondary text-white h-full flex flex-col justify-center">
+                    <h2 class="font-heading text-4xl font-extrabold mb-4">Get in touch</h2>
+                    <p class="text-white/80 mb-10 text-lg">I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white/60 text-sm uppercase tracking-wider mb-1">Email</h4>
+                                <a href="mailto:princecn@stanford.edu" class="text-lg hover:underline transition-all">princecn@stanford.edu</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white/60 text-sm uppercase tracking-wider mb-1">Phone</h4>
+                                <p class="text-lg">(424) 205-8317</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white/60 text-sm uppercase tracking-wider mb-1">Location</h4>
+                                <p class="text-lg">Stanford, CA</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-primary transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-primary transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="p-10 md:p-16">
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="How can I help you?">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Your message here..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-3 px-6 rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CONTACT FORM END -->
+
+    <!-- FOOTER START -->
+    <footer class="bg-gray-900 text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                <div>
+                    <a href="index.html" class="font-heading font-extrabold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-4 inline-block">
+                        Prince.
+                    </a>
+                    <p class="text-gray-400 mb-6">Building the future with data and design. Management Science & Engineering at Stanford University.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:princecn@stanford.edu" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-heading font-bold text-xl mb-6">Quick Links</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About Me</a></li>
+                        <li><a href="project-details.html" class="hover:text-primary transition-colors">Projects</a></li>
+                        <li><a href="blog-list.html" class="hover:text-primary transition-colors">Blog</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-heading font-bold text-xl mb-6">Contact Info</h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-primary"></i>
+                            <span>Stanford, CA</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <a href="mailto:princecn@stanford.edu" class="hover:text-primary transition-colors">princecn@stanford.edu</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone text-primary"></i>
+                            <span>(424) 205-8317</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2026 Prince Nwalozie. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+
+    <script src="script.js"></script>
+</body>
+</html>
