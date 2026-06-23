@@ -45,7 +45,54 @@ document.addEventListener('DOMContentLoaded', () => {
                     localStorage.setItem('color-theme', 'dark');
                 }
             }
-        });
+        
+    // 6. Click-through Image Album
+    const albums = document.querySelectorAll('.click-album');
+    albums.forEach(album => {
+        const images = album.querySelectorAll('img');
+        if (images.length > 1) {
+            let activeIndex = 0;
+            
+            // Set initial state
+            images.forEach((img, index) => {
+                img.style.position = 'absolute';
+                img.style.top = '0';
+                img.style.left = '0';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.transition = 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out';
+                
+                if (index === 0) {
+                    img.style.opacity = '1';
+                    img.style.transform = 'scale(1) rotate(0deg)';
+                    img.style.zIndex = '10';
+                } else {
+                    img.style.opacity = '0';
+                    img.style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                    img.style.zIndex = '0';
+                }
+            });
+
+            // On click
+            album.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Animate out current
+                images[activeIndex].style.opacity = '0';
+                images[activeIndex].style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                images[activeIndex].style.zIndex = '0';
+                
+                // Increment index
+                activeIndex = (activeIndex + 1) % images.length;
+                
+                // Animate in next
+                images[activeIndex].style.opacity = '1';
+                images[activeIndex].style.transform = 'scale(1) rotate(0deg)';
+                images[activeIndex].style.zIndex = '10';
+            });
+        }
+    });
+});
     }
 
     // 2. Mobile Menu Toggle Logic
@@ -55,7 +102,54 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btn && menu) {
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
-        });
+        
+    // 6. Click-through Image Album
+    const albums = document.querySelectorAll('.click-album');
+    albums.forEach(album => {
+        const images = album.querySelectorAll('img');
+        if (images.length > 1) {
+            let activeIndex = 0;
+            
+            // Set initial state
+            images.forEach((img, index) => {
+                img.style.position = 'absolute';
+                img.style.top = '0';
+                img.style.left = '0';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.transition = 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out';
+                
+                if (index === 0) {
+                    img.style.opacity = '1';
+                    img.style.transform = 'scale(1) rotate(0deg)';
+                    img.style.zIndex = '10';
+                } else {
+                    img.style.opacity = '0';
+                    img.style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                    img.style.zIndex = '0';
+                }
+            });
+
+            // On click
+            album.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Animate out current
+                images[activeIndex].style.opacity = '0';
+                images[activeIndex].style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                images[activeIndex].style.zIndex = '0';
+                
+                // Increment index
+                activeIndex = (activeIndex + 1) % images.length;
+                
+                // Animate in next
+                images[activeIndex].style.opacity = '1';
+                images[activeIndex].style.transform = 'scale(1) rotate(0deg)';
+                images[activeIndex].style.zIndex = '10';
+            });
+        }
+    });
+});
     }
 
     // 3. Navbar scroll effect
@@ -67,7 +161,54 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 navbar.classList.remove('shadow-md', 'dark:border-b', 'dark:border-gray-800');
             }
-        });
+        
+    // 6. Click-through Image Album
+    const albums = document.querySelectorAll('.click-album');
+    albums.forEach(album => {
+        const images = album.querySelectorAll('img');
+        if (images.length > 1) {
+            let activeIndex = 0;
+            
+            // Set initial state
+            images.forEach((img, index) => {
+                img.style.position = 'absolute';
+                img.style.top = '0';
+                img.style.left = '0';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.transition = 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out';
+                
+                if (index === 0) {
+                    img.style.opacity = '1';
+                    img.style.transform = 'scale(1) rotate(0deg)';
+                    img.style.zIndex = '10';
+                } else {
+                    img.style.opacity = '0';
+                    img.style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                    img.style.zIndex = '0';
+                }
+            });
+
+            // On click
+            album.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Animate out current
+                images[activeIndex].style.opacity = '0';
+                images[activeIndex].style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                images[activeIndex].style.zIndex = '0';
+                
+                // Increment index
+                activeIndex = (activeIndex + 1) % images.length;
+                
+                // Animate in next
+                images[activeIndex].style.opacity = '1';
+                images[activeIndex].style.transform = 'scale(1) rotate(0deg)';
+                images[activeIndex].style.zIndex = '10';
+            });
+        }
+    });
+});
     }
 
     // 4. Scroll Reveal Animation
@@ -78,7 +219,54 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.classList.add('opacity-100', 'translate-y-0', 'translate-x-0');
                 entry.target.classList.remove('opacity-0', 'translate-y-10', '-translate-x-10', 'translate-x-10');
             }
-        });
+        
+    // 6. Click-through Image Album
+    const albums = document.querySelectorAll('.click-album');
+    albums.forEach(album => {
+        const images = album.querySelectorAll('img');
+        if (images.length > 1) {
+            let activeIndex = 0;
+            
+            // Set initial state
+            images.forEach((img, index) => {
+                img.style.position = 'absolute';
+                img.style.top = '0';
+                img.style.left = '0';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.transition = 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out';
+                
+                if (index === 0) {
+                    img.style.opacity = '1';
+                    img.style.transform = 'scale(1) rotate(0deg)';
+                    img.style.zIndex = '10';
+                } else {
+                    img.style.opacity = '0';
+                    img.style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                    img.style.zIndex = '0';
+                }
+            });
+
+            // On click
+            album.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Animate out current
+                images[activeIndex].style.opacity = '0';
+                images[activeIndex].style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                images[activeIndex].style.zIndex = '0';
+                
+                // Increment index
+                activeIndex = (activeIndex + 1) % images.length;
+                
+                // Animate in next
+                images[activeIndex].style.opacity = '1';
+                images[activeIndex].style.transform = 'scale(1) rotate(0deg)';
+                images[activeIndex].style.zIndex = '10';
+            });
+        }
+    });
+});
     };
     
     const revealOptions = {
@@ -98,7 +286,54 @@ document.addEventListener('DOMContentLoaded', () => {
              el.classList.add('opacity-0', 'translate-x-10');
         }
         revealObserver.observe(el);
+    
+    // 6. Click-through Image Album
+    const albums = document.querySelectorAll('.click-album');
+    albums.forEach(album => {
+        const images = album.querySelectorAll('img');
+        if (images.length > 1) {
+            let activeIndex = 0;
+            
+            // Set initial state
+            images.forEach((img, index) => {
+                img.style.position = 'absolute';
+                img.style.top = '0';
+                img.style.left = '0';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.transition = 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out';
+                
+                if (index === 0) {
+                    img.style.opacity = '1';
+                    img.style.transform = 'scale(1) rotate(0deg)';
+                    img.style.zIndex = '10';
+                } else {
+                    img.style.opacity = '0';
+                    img.style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                    img.style.zIndex = '0';
+                }
+            });
+
+            // On click
+            album.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Animate out current
+                images[activeIndex].style.opacity = '0';
+                images[activeIndex].style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                images[activeIndex].style.zIndex = '0';
+                
+                // Increment index
+                activeIndex = (activeIndex + 1) % images.length;
+                
+                // Animate in next
+                images[activeIndex].style.opacity = '1';
+                images[activeIndex].style.transform = 'scale(1) rotate(0deg)';
+                images[activeIndex].style.zIndex = '10';
+            });
+        }
     });
+});
 
     // Trigger active class on elements already in viewport on load
     setTimeout(() => {
@@ -108,7 +343,54 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.classList.add('opacity-100', 'translate-y-0', 'translate-x-0');
                 el.classList.remove('opacity-0', 'translate-y-10', '-translate-x-10', 'translate-x-10');
             }
-        });
+        
+    // 6. Click-through Image Album
+    const albums = document.querySelectorAll('.click-album');
+    albums.forEach(album => {
+        const images = album.querySelectorAll('img');
+        if (images.length > 1) {
+            let activeIndex = 0;
+            
+            // Set initial state
+            images.forEach((img, index) => {
+                img.style.position = 'absolute';
+                img.style.top = '0';
+                img.style.left = '0';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.transition = 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out';
+                
+                if (index === 0) {
+                    img.style.opacity = '1';
+                    img.style.transform = 'scale(1) rotate(0deg)';
+                    img.style.zIndex = '10';
+                } else {
+                    img.style.opacity = '0';
+                    img.style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                    img.style.zIndex = '0';
+                }
+            });
+
+            // On click
+            album.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Animate out current
+                images[activeIndex].style.opacity = '0';
+                images[activeIndex].style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                images[activeIndex].style.zIndex = '0';
+                
+                // Increment index
+                activeIndex = (activeIndex + 1) % images.length;
+                
+                // Animate in next
+                images[activeIndex].style.opacity = '1';
+                images[activeIndex].style.transform = 'scale(1) rotate(0deg)';
+                images[activeIndex].style.zIndex = '10';
+            });
+        }
+    });
+});
     }, 100);
 
     // 5. Testimonial Carousel
@@ -135,7 +417,54 @@ document.addEventListener('DOMContentLoaded', () => {
             dot.addEventListener('click', () => {
                 goToSlide(i);
                 resetAutoplay();
+            
+    // 6. Click-through Image Album
+    const albums = document.querySelectorAll('.click-album');
+    albums.forEach(album => {
+        const images = album.querySelectorAll('img');
+        if (images.length > 1) {
+            let activeIndex = 0;
+            
+            // Set initial state
+            images.forEach((img, index) => {
+                img.style.position = 'absolute';
+                img.style.top = '0';
+                img.style.left = '0';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.transition = 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out';
+                
+                if (index === 0) {
+                    img.style.opacity = '1';
+                    img.style.transform = 'scale(1) rotate(0deg)';
+                    img.style.zIndex = '10';
+                } else {
+                    img.style.opacity = '0';
+                    img.style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                    img.style.zIndex = '0';
+                }
             });
+
+            // On click
+            album.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Animate out current
+                images[activeIndex].style.opacity = '0';
+                images[activeIndex].style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                images[activeIndex].style.zIndex = '0';
+                
+                // Increment index
+                activeIndex = (activeIndex + 1) % images.length;
+                
+                // Animate in next
+                images[activeIndex].style.opacity = '1';
+                images[activeIndex].style.transform = 'scale(1) rotate(0deg)';
+                images[activeIndex].style.zIndex = '10';
+            });
+        }
+    });
+});
             indicatorsContainer.appendChild(dot);
         }
         const dots = indicatorsContainer.children;
@@ -149,7 +478,54 @@ document.addEventListener('DOMContentLoaded', () => {
                     dot.classList.remove('bg-white', 'w-8');
                     dot.classList.add('bg-white/40', 'w-2');
                 }
+            
+    // 6. Click-through Image Album
+    const albums = document.querySelectorAll('.click-album');
+    albums.forEach(album => {
+        const images = album.querySelectorAll('img');
+        if (images.length > 1) {
+            let activeIndex = 0;
+            
+            // Set initial state
+            images.forEach((img, index) => {
+                img.style.position = 'absolute';
+                img.style.top = '0';
+                img.style.left = '0';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.transition = 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out';
+                
+                if (index === 0) {
+                    img.style.opacity = '1';
+                    img.style.transform = 'scale(1) rotate(0deg)';
+                    img.style.zIndex = '10';
+                } else {
+                    img.style.opacity = '0';
+                    img.style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                    img.style.zIndex = '0';
+                }
             });
+
+            // On click
+            album.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Animate out current
+                images[activeIndex].style.opacity = '0';
+                images[activeIndex].style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                images[activeIndex].style.zIndex = '0';
+                
+                // Increment index
+                activeIndex = (activeIndex + 1) % images.length;
+                
+                // Animate in next
+                images[activeIndex].style.opacity = '1';
+                images[activeIndex].style.transform = 'scale(1) rotate(0deg)';
+                images[activeIndex].style.zIndex = '10';
+            });
+        }
+    });
+});
         };
 
         const goToSlide = (index) => {
@@ -180,13 +556,154 @@ document.addEventListener('DOMContentLoaded', () => {
         nextBtn.addEventListener('click', () => {
             nextSlide();
             resetAutoplay();
-        });
+        
+    // 6. Click-through Image Album
+    const albums = document.querySelectorAll('.click-album');
+    albums.forEach(album => {
+        const images = album.querySelectorAll('img');
+        if (images.length > 1) {
+            let activeIndex = 0;
+            
+            // Set initial state
+            images.forEach((img, index) => {
+                img.style.position = 'absolute';
+                img.style.top = '0';
+                img.style.left = '0';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.transition = 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out';
+                
+                if (index === 0) {
+                    img.style.opacity = '1';
+                    img.style.transform = 'scale(1) rotate(0deg)';
+                    img.style.zIndex = '10';
+                } else {
+                    img.style.opacity = '0';
+                    img.style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                    img.style.zIndex = '0';
+                }
+            });
+
+            // On click
+            album.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Animate out current
+                images[activeIndex].style.opacity = '0';
+                images[activeIndex].style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                images[activeIndex].style.zIndex = '0';
+                
+                // Increment index
+                activeIndex = (activeIndex + 1) % images.length;
+                
+                // Animate in next
+                images[activeIndex].style.opacity = '1';
+                images[activeIndex].style.transform = 'scale(1) rotate(0deg)';
+                images[activeIndex].style.zIndex = '10';
+            });
+        }
+    });
+});
 
         prevBtn.addEventListener('click', () => {
             prevSlide();
             resetAutoplay();
-        });
+        
+    // 6. Click-through Image Album
+    const albums = document.querySelectorAll('.click-album');
+    albums.forEach(album => {
+        const images = album.querySelectorAll('img');
+        if (images.length > 1) {
+            let activeIndex = 0;
+            
+            // Set initial state
+            images.forEach((img, index) => {
+                img.style.position = 'absolute';
+                img.style.top = '0';
+                img.style.left = '0';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.transition = 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out';
+                
+                if (index === 0) {
+                    img.style.opacity = '1';
+                    img.style.transform = 'scale(1) rotate(0deg)';
+                    img.style.zIndex = '10';
+                } else {
+                    img.style.opacity = '0';
+                    img.style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                    img.style.zIndex = '0';
+                }
+            });
+
+            // On click
+            album.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Animate out current
+                images[activeIndex].style.opacity = '0';
+                images[activeIndex].style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                images[activeIndex].style.zIndex = '0';
+                
+                // Increment index
+                activeIndex = (activeIndex + 1) % images.length;
+                
+                // Animate in next
+                images[activeIndex].style.opacity = '1';
+                images[activeIndex].style.transform = 'scale(1) rotate(0deg)';
+                images[activeIndex].style.zIndex = '10';
+            });
+        }
+    });
+});
 
         startAutoplay();
     }
+
+    // 6. Click-through Image Album
+    const albums = document.querySelectorAll('.click-album');
+    albums.forEach(album => {
+        const images = album.querySelectorAll('img');
+        if (images.length > 1) {
+            let activeIndex = 0;
+            
+            // Set initial state
+            images.forEach((img, index) => {
+                img.style.position = 'absolute';
+                img.style.top = '0';
+                img.style.left = '0';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.transition = 'opacity 0.4s ease-in-out, transform 0.4s ease-in-out';
+                
+                if (index === 0) {
+                    img.style.opacity = '1';
+                    img.style.transform = 'scale(1) rotate(0deg)';
+                    img.style.zIndex = '10';
+                } else {
+                    img.style.opacity = '0';
+                    img.style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                    img.style.zIndex = '0';
+                }
+            });
+
+            // On click
+            album.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Animate out current
+                images[activeIndex].style.opacity = '0';
+                images[activeIndex].style.transform = `scale(0.95) rotate(${(Math.random() - 0.5) * 6}deg)`;
+                images[activeIndex].style.zIndex = '0';
+                
+                // Increment index
+                activeIndex = (activeIndex + 1) % images.length;
+                
+                // Animate in next
+                images[activeIndex].style.opacity = '1';
+                images[activeIndex].style.transform = 'scale(1) rotate(0deg)';
+                images[activeIndex].style.zIndex = '10';
+            });
+        }
+    });
 });

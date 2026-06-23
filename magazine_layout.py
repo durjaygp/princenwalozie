@@ -1,107 +1,11 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Prince Nwalozie</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            DEFAULT: '#10B981',
-                            dark: '#059669',
-                        },
-                        secondary: {
-                            DEFAULT: '#3B82F6',
-                        }
-                    },
-                    fontFamily: {
-                        heading: ['Plus Jakarta Sans', 'sans-serif'],
-                        body: ['Plus Jakarta Sans', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body class="font-body text-gray-800 bg-gray-50 dark:bg-gray-900 dark:text-gray-100 antialiased overflow-x-hidden transition-colors duration-300 flex flex-col min-h-screen">
+import re
 
-    <!-- NAVBAR START -->
-    <nav class="navbar fixed w-full top-0 left-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0">
-                    <a href="index.html" class="font-heading font-extrabold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-                        Prince.
-                    </a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="about.html" class="font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">About</a>
-                    <a href="index.html#experience" class="font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">Experience</a>
-                    <a href="project-details.html" class="font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">Projects</a>
-                    <a href="index.html#leadership" class="font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">Leadership</a>
-                    <a href="blog-list.html" class="font-medium text-primary dark:text-primary transition-colors">Blog</a>
-                    
-                    <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none rounded-none text-sm p-2.5 transition-colors">
-                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                    </button>
-                    
-                    <a href="contact.html" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-none font-semibold hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">Let's Talk</a>
-                </div>
-                <div class="md:hidden flex items-center gap-4">
-                    <button id="theme-toggle-mobile" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none rounded-none text-sm p-2.5">
-                        <svg class="w-5 h-5 dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                        <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                    </button>
-                    <button id="mobile-menu-button" class="text-gray-600 dark:text-gray-300 hover:text-primary focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t-2 border-gray-900 dark:border-gray-700 dark:border-gray-800">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="about.html" class="block px-3 py-2 rounded-none text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary">About</a>
-                <a href="index.html#experience" class="block px-3 py-2 rounded-none text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary">Experience</a>
-                <a href="project-details.html" class="block px-3 py-2 rounded-none text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary">Projects</a>
-                <a href="index.html#leadership" class="block px-3 py-2 rounded-none text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary">Leadership</a>
-                <a href="blog-list.html" class="block px-3 py-2 rounded-none text-base font-medium text-primary bg-primary/10 dark:bg-primary/20">Blog</a>
-                <a href="contact.html" class="block px-3 py-2 rounded-none text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary">Let's Talk</a>
-            </div>
-        </div>
-    </nav>
-    <!-- NAVBAR END -->
+blog_file = 'd:/other/princenwalozie/blog-list.html'
 
-    <!-- PAGE HEADER START -->
-    <section class="pt-32 pb-16 md:pt-40 md:pb-20 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-            <h1 class="font-heading text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-6">What I'm <span class="text-primary">Exploring</span></h1>
-            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">A space for me to discuss current intellectual rabbit holes—from AI and finance to markets and product strategy.</p>
-        </div>
-    </section>
-    <!-- PAGE HEADER END -->
+with open(blog_file, 'r', encoding='utf-8') as f:
+    content = f.read()
 
-    <!-- BLOG LIST START -->
-
+new_magazine_layout = """
     <section class="py-12 md:py-20 flex-grow">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
             
@@ -238,67 +142,20 @@
 
         </div>
     </section>
+"""
 
-    <!-- BLOG LIST END -->
+# Extract and replace
+start_comment = '<!-- BLOG LIST START -->'
+end_comment = '<!-- BLOG LIST END -->'
 
-    <!-- FOOTER START -->
-    <footer class="bg-gray-900 text-white pt-20 pb-10 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-                <div>
-                    <a href="index.html" class="font-heading font-extrabold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-4 inline-block">
-                        Prince.
-                    </a>
-                    <p class="text-gray-400 mb-6">Building the future with data and design. Management Science & Engineering at Stanford University.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-none bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-none bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="mailto:princecn@stanford.edu" class="w-10 h-10 rounded-none bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="font-heading font-bold text-xl mb-6">Quick Links</h3>
-                    <ul class="space-y-3 text-gray-400">
-                        <li><a href="about.html" class="hover:text-primary transition-colors">About Me</a></li>
-                        <li><a href="project-details.html" class="hover:text-primary transition-colors">Projects</a></li>
-                        <li><a href="blog-list.html" class="hover:text-primary transition-colors">Blog</a></li>
-                        <li><a href="contact.html" class="hover:text-primary transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="font-heading font-bold text-xl mb-6">Contact Info</h3>
-                    <ul class="space-y-4 text-gray-400">
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-map-marker-alt mt-1 text-primary"></i>
-                            <span>Stanford, CA</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-envelope text-primary"></i>
-                            <a href="mailto:princecn@stanford.edu" class="hover:text-primary transition-colors">princecn@stanford.edu</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-phone text-primary"></i>
-                            <span>(424) 205-8317</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-                <p>&copy; 2026 Prince Nwalozie. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-    <!-- FOOTER END -->
-
-    <script src="script.js"></script>
-</body>
-</html>
+if start_comment in content and end_comment in content:
+    start_idx = content.find(start_comment)
+    end_idx = content.find(end_comment) + len(end_comment)
+    
+    new_content = content[:start_idx] + start_comment + '\n' + new_magazine_layout + '\n    ' + end_comment + content[end_idx:]
+    
+    with open(blog_file, 'w', encoding='utf-8') as f:
+        f.write(new_content)
+    print("Magazine layout applied successfully.")
+else:
+    print("Error: Could not find BLOG LIST comments.")
